@@ -12,8 +12,8 @@ This Python program generates an SQLite database, creates a table, and populates
 
 1. Clone this repository to your local machine:
    git clone https://github.com/alvinjaison/python-sqlite.git
-css
-2. Navigate to the cloned repository directory:
+   
+3. Navigate to the cloned repository directory:
    cd python-sqlite
    
 4. Run the code to create the database. The database will be created in the same directory with the name `my_database.db`:
