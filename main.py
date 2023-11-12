@@ -3,7 +3,7 @@ import random
 import string
 
 # Connect to the database
-conn = sqlite3.connect('my_database.db')
+conn = sqlite3.connect('my_database3.db')
 cursor = conn.cursor()
 
 # Create a table
@@ -21,6 +21,8 @@ cursor.execute('''
 
 
 
+
+
 # Generate and insert random data into the table
 for _ in range(1000):
     nominal_data = ''.join(random.choice(string.ascii_lowercase) for _ in range(5))
@@ -34,3 +36,4 @@ for _ in range(1000):
 # Commit the changes and close the connection
 conn.commit()
 conn.close()
+
