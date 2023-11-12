@@ -23,29 +23,28 @@ cursor.execute('''
 
 cursor.execute('''
     CREATE TABLE student (
-        id INTEGER PRIMARY KEY,
+        id INTEGER,
         name_nominal_column TEXT,
         gender_ordinal_column TEXT,
         percentage_interval_column REAL,
         year_ratio_column INTEGER,
         compound_key_column,
         course_id INTEGER,
-        FOREIGN KEY (course_id) REFERENCES course(course_id)
+        FOREIGN KEY (course_id) REFERENCES course(course_id),
+        PRIMARY KEY (id, name_nominal_column)
     )
 ''')
 
 
-
-
 # Generate and insert random data into the table
-for _ in range(1000):
+for num in range(1000):
     name_nominal_data = ''.join(random.choice(string.ascii_lowercase) for _ in range(5))
     gender_ordinal_data = random.choice(['Male', 'Female'])
     percentage_interval_data = random.uniform(50.0, 100.0)
     year_ratio_data = random.randint(1990, 2000)
     compound_key_data = ''.join(random.choice(string.ascii_uppercase) for _ in range(10))
     course_id_data = random.randint(1, 1000)
-    cursor.execute("INSERT INTO student (name_nominal_column, gender_ordinal_column, percentage_interval_column, year_ratio_column, compound_key_column, course_id) VALUES (?, ?, ?, ?, ?, ?)", (name_nominal_data, gender_ordinal_data, percentage_interval_data, year_ratio_data, compound_key_data, course_id_data))
+    cursor.execute("INSERT INTO student (id, name_nominal_column, gender_ordinal_column, percentage_interval_column, year_ratio_column, compound_key_column, course_id) VALUES (?, ?, ?, ?, ?, ?, ?)", (num, name_nominal_data, gender_ordinal_data, percentage_interval_data, year_ratio_data, compound_key_data, course_id_data))
 
 
 # Generate and insert random data into the table
